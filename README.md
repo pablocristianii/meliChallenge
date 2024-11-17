@@ -150,30 +150,7 @@ La API utiliza autenticación basada en tokens JWT. Sigue estos pasos para auten
 
 ---
 
-## *Tecnologías*
-- Python 3.x
-- Flask
-- PyJWT
-- PokeAPI (API externa)
 
----
-
-## *Pruebas*
-Puedes probar la API usando herramientas como:
-- *Postman* (GUI).
-- *cURL* (línea de comandos).
-- *Python Requests* (scripts automatizados).
-
----
-
-## *Contribución*
-Si deseas contribuir:
-1. Haz un fork del repositorio.
-2. Crea una rama con tus cambios:
-   bash
-   git checkout -b mi-nueva-funcionalidad
-   
-3. Realiza un pull request con tus contribuciones.
 
 
 

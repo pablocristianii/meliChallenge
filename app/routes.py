@@ -1,15 +1,12 @@
 import random
 import requests
-
+from.auth import token_required
 from flask import Blueprint, jsonify
 
 api_bp = Blueprint('api', __name__)
 
-@api_bp.route('/ping', methods=['GET'])
-def ping():
-    return jsonify({"message": "pong!"}), 200
-
 @api_bp.route('/pokemon/<string:name>', methods=['GET'])
+@token_required
 def get_pokemon_type(name):
     """
     Obtiene los tipos de un Pokémon por su nombre usando la PokeAPI.
@@ -29,6 +26,7 @@ def get_pokemon_type(name):
         return jsonify({"error": "Error al procesar la solicitud", "details": str(e)}), 500
 
 @api_bp.route('/pokemon/random/<string:type_name>', methods=['GET'])
+@token_required
 def get_random_pokemon_by_type(type_name):
     """
     Obtiene un Pokémon al azar de un tipo específico usando la PokeAPI.
@@ -53,6 +51,7 @@ def get_random_pokemon_by_type(type_name):
         return jsonify({"error": "Error al procesar la solicitud", "details": str(e)}), 500
 
 @api_bp.route('/pokemon/longest/<string:type_name>', methods=['GET'])
+@token_required
 def get_longest_pokemon_name_by_type(type_name):
     """
     Obtiene el Pokémon con el nombre más largo de un tipo específico usando la PokeAPI.
@@ -79,4 +78,4 @@ def get_longest_pokemon_name_by_type(type_name):
     except Exception as e:
         return jsonify({"error": "Error al procesar la solicitud", "details": str(e)}), 500
     
-    
+
